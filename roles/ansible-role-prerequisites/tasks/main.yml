@@ -1,6 +1,6 @@
 ---
 - name: Install Prerequisites
-  yum:
+  package:
     name:
     - vim
     - wget

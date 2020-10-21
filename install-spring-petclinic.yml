@@ -1,5 +1,6 @@
 - hosts: all
   tasks:
+  
   - name: Install Prerequisites
     import_role:
       name: ansible-role-prerequisites
@@ -12,7 +13,7 @@
     git:
       repo: https://github.com/ikambarov/spring-petclinic.git
       dest: /spring
-
+   
   - name: Run Maven Wrapper
     shell: "./mvnw package"
     args:
@@ -20,8 +21,7 @@
       creates: /spring/target/*.jar
 
   - name: Start App
-    shell: 'pkill java && nohup java -jar target/*.jar &'
+    shell: 'nohup java -jar target/*.jar &'
     args:
       chdir: /spring
-
-
+ 
